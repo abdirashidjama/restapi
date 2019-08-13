@@ -1,0 +1,6 @@
+{
+	"env": {
+		"MONGO_ATLAS_PW": "ad9fa6ch",
+		"JWT_KEY": "kimura"
+		}
+}
