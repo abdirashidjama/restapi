@@ -78,7 +78,7 @@ exports.students_post = (req, res, next) => {
 		memTypeInfo: req.body.memtypeinfo,
 		memExpDate: req.body.memexpdate,
 		hours: req.body.hours,
-		studentImage: req.file.path
+		studentImage: req.body.studentImage
 	});
 	student
 	.save()
@@ -105,6 +105,31 @@ exports.students_post = (req, res, next) => {
 	
 	});
 	
+}
+
+exports.students_patch = (req, res, next) => {
+	// create an object to hold the names and values of changed values sent via request body
+	const id= req.params.studentId;
+	const updateOps ={};
+	for(const ops of req.body){
+		updateOps[ops.propName] = ops.value;
+	}
+	Student.update({_id: id}, {$set: updateOps})
+	.exec()
+	.then(result =>{
+		res.status(200).json({
+			message: 'Student information',
+			request: {
+				type: 'GET',
+				url: 'http://localhost:3001/students/' + id
+			}
+		});
+	})
+	.catch(err=>{
+		console.log(err);
+		res.status(500).json({error:err});
+	})
+
 }
 
 exports.students_delete = (req, res, next) => {
