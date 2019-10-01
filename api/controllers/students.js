@@ -17,7 +17,9 @@ exports.students_get_all = (req, res, next) => {
 						number: doc.number,
 						membershiptype: doc.memTypeInfo,
 						memexpdate: doc.memExpDate,
-						hours: doc.hours,
+						giHours: doc.giHours,
+						noGiHours: doc.noGiHours,
+						strikingHours: doc.strikingHours,
 						studentImage: doc.studentImage,
 						request: {
 							type: 'GET',
@@ -53,6 +55,9 @@ exports.students_get_id = (req, res, next) =>{
 					number: doc.number,
 					membershiptype: doc.memTypeInfo,
 					memexpdate: doc.memExpDate,
+					giHours: doc.giHours,
+					noGiHours: doc.noGiHours,
+					strikingHours: doc.strikingHours,
 					studentImage: doc.studentImage
 				}
 			});
@@ -77,7 +82,9 @@ exports.students_post = (req, res, next) => {
 		number: req.body.number,
 		memTypeInfo: req.body.memtypeinfo,
 		memExpDate: req.body.memexpdate,
-		hours: req.body.hours,
+		giHours: req.body.giHours,
+		noGiHours: req.body.noGiHours,
+		strikingHours: req.body.strikingHours,
 		studentImage: req.body.studentImage
 	});
 	student
