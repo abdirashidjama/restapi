@@ -8,9 +8,9 @@ const studentSchema = mongoose.Schema({
 	number: {type: String, required: false},
 	memTypeInfo: {type: String, required: false},
 	memExpDate: {type: Date, required: false},
-	GiHours: {type: Number, required: false},
-	NoGiHours: {type: Number, required: false},
-	StrikingHours: {type: Number, required: false},
+	giHours: {type: Number, required: false},
+	noGiHours: {type: Number, required: false},
+	strikingHours: {type: Number, required: false},
 	MostRecentTraining: {type: Date, required: false},
 	studentImage:{type: String, required: false}
 });
