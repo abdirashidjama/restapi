@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const attendanceSchema = mongoose.Schema({
 	_id: mongoose.Schema.Types.ObjectId,
 	date: {type: Date, required: false},
-	giAttendance: [{ type: ObjectId, ref: 'Student'}],
-	noGiAttendance:[{ type: ObjectId, ref: 'Student'}],
-	strikingAttendance: [{type: ObjectId, ref: 'Student'}]
+	gi: [{ type: ObjectId, ref: 'Attendance'}],
+	noGi:[{ type: ObjectId, ref: 'Attendance'}],
+	striking: [{type: ObjectId, ref: 'Attendance'}]
 });
 
-module.exports = mongoose.model('Attendance', studentSchema);
+module.exports = mongoose.model('Attendance', attendanceSchema);
